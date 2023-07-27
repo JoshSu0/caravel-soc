@@ -30,7 +30,7 @@ SECTIONS
 		KEEP(*crt0*(.text))
 		KEEP(*(.text.isr))
 
-		*(.text .stub .text.* .gnu.linkonce.t.*)
+		/* *(.text .stub .text.* .gnu.linkonce.t.*) */
 		_etext = .;
 	} > flash
 
@@ -75,8 +75,9 @@ SECTIONS
 	{
 		. = ALIGN(8);
 		_fsram = .;
+		*libgcc.a:*(.text .text.*)
 
-	} > mprjram AT > flash
+	} > mprjram AT > flash	
 }
 
 PROVIDE(_fstack = ORIGIN(dff2) + LENGTH(dff2));

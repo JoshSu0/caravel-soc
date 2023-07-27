@@ -20,6 +20,7 @@
 #include <stub.c>
 
 extern int adder();
+extern int matmul();
 
 // --------------------------------------------------------
 
@@ -128,6 +129,8 @@ void main()
 	}
 */	
 	reg_mprj_datal = adder() << 16;	
+
+	matmul();
 
 	//print("\n");
 	//print("Monitor: Test 1 Passed\n\n");	// Makes simulation very long!
